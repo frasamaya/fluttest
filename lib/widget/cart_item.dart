@@ -36,7 +36,7 @@ class ItemCart extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Rp 13.000'),
+                    Text('USD '+ item.menuPrice),
                     Column(
                       children: [
                         Row(
