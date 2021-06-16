@@ -30,12 +30,11 @@ class _CartScreenState extends State<CartScreen>{
                           CartBloc(Repository())..add(CartGetEvent()),
                       child: BlocBuilder<CartBloc, CartState>(
                         builder: (context, state) {
-                          print(state);
                           if( state is CartInitial){
                             return Text('Loading...');
                           }
                           if( state is CartLoaded){
-                          return SingleChildScrollView(
+                            return SingleChildScrollView(
                               child: Container(
                                 child: Column(
                                   children: [
@@ -66,6 +65,7 @@ class _CartScreenState extends State<CartScreen>{
                               ),
                             );
                           }
+                          return Text('You have no data');
                         })
       )
     );
