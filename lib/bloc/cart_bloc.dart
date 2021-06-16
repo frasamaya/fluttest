@@ -18,15 +18,18 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     CartEvent event,
   ) async* {
     print(event);
+
     yield* _mapLoginSubmittedToState();
   }
 
    Stream<CartState> _mapLoginSubmittedToState() async* {
-    
+    yield CartGetState( );
     final bool = await repository.getProducts();
-
-    print(bool);
-
-    yield CartLoaded( data : bool);
+    try {
+      yield CartLoaded( data : bool);
+    } catch (e) {
+      yield CartError( );
+    }
+    
   }
 }
